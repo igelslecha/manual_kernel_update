@@ -12,3 +12,11 @@ grub2-set-default 0
 echo "Grub update done."
 # Reboot VM
 shutdown -r now
+# Install tools for Virtual share
+yum install -y centos-release-scl
+yum-config-manager --enable rhel-server-rhscl-7-rpms
+yum install -y devtoolset-8
+scl enable devtoolset-8 bash
+yum install -y gcc make perl
+# Reboot VM
+shutdown -r now
